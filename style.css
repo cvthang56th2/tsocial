@@ -25,3 +25,11 @@
 .justify-space-between {
   justify-content: space-between;
 }
+
+.pa-0 {
+  padding: 0;
+}
+
+.pa-1 {
+  padding: 4px;
+}

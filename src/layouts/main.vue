@@ -1,7 +1,7 @@
 <template>
   <v-layout class="wrap-page d-flex flex-column">
     
-    <v-app-bar app color="primary" dark>
+    <v-app-bar v-if="isLoggedIn" app color="primary" dark>
       <div class="d-flex align-center">
         <a @click.prevent="goTo({ name: 'HomePage' })">
           <v-img
@@ -27,7 +27,7 @@
         </div>
         <span>icon1</span>
         <span>icon1</span>
-        <span>icon1</span>
+        <v-btn class="pointer" @click="logout">logout</v-btn>
       </div>
     </v-app-bar>
     
@@ -38,3 +38,25 @@
     </v-main>
   </v-layout>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  name: 'LayoutMain',
+  computed: {
+    ...mapGetters({
+      isLoggedIn: 'auth/isLoggedIn'  
+    })
+  },
+  methods: {
+    logout(){
+      this.$store.dispatch('auth/logout')
+        .then(() => {
+          this.successNotify({ title: 'Logout', message: 'Logout successfully!' })
+          this.goTo({ name: 'LoginPage' })
+        })
+    }
+  }
+}
+</script>

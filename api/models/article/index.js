@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
+const schema = require('./schema')
 
-const articleModel = mongoose.Schema({
-  name: {type: String, required: '{PATH} is required!'},
-  description: {type: String},
-}, {
+const articleModel = mongoose.Schema(schema, {
   timestamps: true
 });
 

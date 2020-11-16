@@ -1,6 +1,8 @@
 <template>
   <v-app>
     <MainLayout />
+
+    <notifications group="sysNoti" position="bottom right" />
   </v-app>
 </template>
 
@@ -20,8 +22,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .pointer {
   cursor: pointer;
+}
+.height-100vh {
+  height: 100vh;
 }
 </style>

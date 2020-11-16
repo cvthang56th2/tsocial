@@ -13,6 +13,39 @@ export default {
             }
             this.$router.push(route)
           }
+        },
+        successNotify (options = {}) {
+          const { title = 'Successfull', message = '', duration = 10000, speed = 1000 } = options
+          this.$notify({
+            group: 'sysNoti',
+            type: 'success',
+            title,
+            text: message,
+            duration,
+            speed
+          })
+        },
+        warningNotify (options = {}) {
+          const { title = 'Warning!', message = '', duration = 10000, speed = 1000 } = options
+          this.$notify({
+            group: 'sysNoti',
+            type: 'warn',
+            title,
+            text: message,
+            duration,
+            speed
+          })
+        },
+        errorNotify (options = {}) {
+          const { title = 'Error', message = '', duration = 10000, speed = 1000 } = options
+          this.$notify({
+            group: 'sysNoti',
+            type: 'error ',
+            title,
+            text: message,
+            duration,
+            speed
+          })
         }
       }
     })
